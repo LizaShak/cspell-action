@@ -54,7 +54,7 @@ export async function gitListFilesForPullRequest(pr: PullRequestEvent): Promise<
         await deepenIfNecessary(commitCount + 1);
         return gitListFiles(sha1, sha2);
     } catch (e) {
-        throw new GitError(`Error getting files for PR ${pr?.number} from git`, e);
+        throw new GitError(`Error getting files for PR ${pr?.number} from git ${e.message}`, e);
     }
 }
 
